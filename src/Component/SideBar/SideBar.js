@@ -493,9 +493,9 @@ function ResponsiveDrawer(props) {
                         {/* <MenuIcon /> */}
                     </IconButton>
                     <Typography style={{ color: "white", display: "flex",width: '100%' }}>
-                    <div style={{width: '100%'}}>
+                    {/* <div style={{width: '100%'}}>
 <Navbars/>
-</div>
+</div> */}
                         </Typography>
                     {/* */}
 
