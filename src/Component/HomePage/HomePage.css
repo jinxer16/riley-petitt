@@ -1,0 +1,69 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+.homepageh2{
+    font-family: 'Saira';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 38px;
+    color: #FFFFFF;
+    text-align: left;
+}
+.homepageImage{
+    background-color: black;
+    border-radius: 8px;
+    /* border-width: 2px;
+border-style: solid; */
+/* border-image: linear-gradient( #01DE8E -0.22%, #2B6AD8 99.97%) 100 */
+    /* border: 2px solid linear-gradient(266.77deg, #01DE8E -0.22%, #2B6AD8 99.97%); */
+}
+.FullSpend{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    color: #FFFFFF;
+}
+.FullSpend-p{
+    font-family: 'Quicksand';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;
+
+color: #FFFFFF;
+}
+.border-Homepage{
+    border-top: 1px solid #01DE8E;
+}
+.border-Homepage-h5{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+/* line-height: 22px; */
+color: #01DE8E;
+}
+.border-Homepage-span{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+/* line-height: -15px; */
+color: #FFFFFF;
+}
+.btn-set{
+    background: linear-gradient(266.77deg, #01DE8E -0.22%, #2B6AD8 99.97%);
+border-radius: 5px;
+font-family: 'Quicksand';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 19px;
+color: #FFFFFF;
+border: 2px solid transparent;
+padding: 10px 20px;
+}
