@@ -48,6 +48,7 @@ import ExtraIcons from "../../Assets/ExtraIcons.png"
 import HomePage from "../HomePage/HomePage";
 import Dashboardicon from "../../Assets/Dashboardicon.png"
 import Navbars from "../Navbar/Navbars";
+import NftsMint from "../NftsMint/NftsMint";
 const drawerWidth = 275;
 let acc;
 function ResponsiveDrawer(props) {
@@ -550,7 +551,8 @@ function ResponsiveDrawer(props) {
                 }}
             >
                 <Toolbar />
-                <HomePage />
+                {/* <HomePage /> */}
+                <NftsMint/>
             </Box>
         </Box>
     );

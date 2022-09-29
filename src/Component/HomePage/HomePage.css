@@ -67,3 +67,32 @@ color: #FFFFFF;
 border: 2px solid transparent;
 padding: 10px 20px;
 }
+
+@media(max-width: 576px){
+    .homepageh2{
+        font-family: 'Saira';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 38px;
+        color: #FFFFFF;
+        text-align: left;
+    }
+    .FullSpend{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: #FFFFFF;
+    }
+    .FullSpend-p{
+        font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    
+    color: #FFFFFF;
+    }
+}
