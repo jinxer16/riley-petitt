@@ -15,10 +15,14 @@ import Group4 from "../../Assets/Group 48095519.png"
 import Group5 from "../../Assets/Group 48095516 (1).png"
 import Group6 from "../../Assets/Group 48095517 (1).png"
 import Group7 from "../../Assets/Group 48095518 (1).png"
+import { BsPlusCircle } from "react-icons/bs"
+import { BiMinusCircle } from "react-icons/bi"
 function NftsMint() {
 
     const [modalShow, setModalShow] = useState(false);
     const [modalShowOne, setModalShowOne] = useState(false)
+    const [modalShowTwo, setModalShowTwo] = useState(false)
+    const [modalShowThree, setModalShowThree] = useState(false)
     return (
         <div className=' container-fluid' style={{ paddingTop: "50px" }}>
             <div className='row'>
@@ -81,7 +85,7 @@ function NftsMint() {
 
             <div className='row mt-4  flex-row justify-content-md-between justify-content-center '>
 
-                <Card style={{ width: "16rem" }} className="card-Box border mt-2">
+                <Card style={{ width: "16rem" }} className="card-Box  mt-2">
                     <div style={{ border: '2px solid #01DE8E', borderRadius: '7px' }}>
                         <Card.Img src={card1} className="img-fluid " />
                         <Card.Body style={{ backgroundColor: "#000000" }}>
@@ -195,7 +199,42 @@ function NftsMint() {
 
 
             </div>
+            {modalShowOne ? (<Modal
+                show={modalShowOne}
+                onHide={() => setModalShowOne(false)}
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                className='settingcontanier '
+                size="sm"
+            >
 
+                <div className='row modal-style '>
+
+                    <div className='col-10 d-flex align-items-center justify-content-between mt-3 '>
+                        <span className='modal-style-span'>Connect Wallet</span>
+                        <IoMdClose
+                            onClick={() => setModalShowOne(false)}
+                            size={22}
+                            style={{ color: "#01DE8E", cursor: "pointer", }}
+                        />
+                    </div>
+
+                    <div className='col-10 d-flex align-items-center justify-content-between ' style={{ borderBottom: '1px solid #01DE8E', cursor: 'pointer' }} onClick={() => setModalShowTwo(true)}>
+                        <span className='modal-style-span-text'>X-wallet</span>
+                        <img src={Group5} />
+                    </div>
+
+                    <div className='col-10 d-flex align-items-center justify-content-between ' onClick={() => setModalShowThree(true)} style={{ cursor: 'pointer' }}>
+                        <span className='modal-style-span-text'>Zelcore</span>
+                        <img src={Group6} />
+                    </div>
+                </div>
+
+            </Modal>
+
+            ) : (<>
+            </>)
+            }
 
             {modalShow ? (
                 <Modal
@@ -203,40 +242,41 @@ function NftsMint() {
                     onHide={() => setModalShow(false)}
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
+                    size="sm"
                     className='settingcontanier'
                 >
 
                     <div className='row modal-style'>
-                       
-                            <div className='col-12 d-flex align-items-center justify-content-between mt-3'>
-                                <span className='modal-style-span'>Mint by Using</span>
-                                <IoMdClose
-                                    onClick={() => setModalShow(false)}
-                                    size={22}
-                                    style={{ color: "#01DE8E", cursor: "pointer", }}
-                                />
-                            </div>
 
-                            <div className='col-8 d-flex align-items-center justify-content-between mt-3' style={{borderBottom: '1px solid #01DE8E', cursor: 'pointer'}} onClick={()=>setModalShowOne(true)}>
-                                <span className='modal-style-span-text'>Kadena</span>
-                                <img src={Group1}/>
-                            </div>
+                        <div className='col-10 d-flex align-items-center justify-content-between mt-3'>
+                            <span className='modal-style-span'>Mint by Using</span>
+                            <IoMdClose
+                                onClick={() => setModalShow(false)}
+                                size={22}
+                                style={{ color: "#01DE8E", cursor: "pointer", }}
+                            />
+                        </div>
 
-                            <div className='col-8 d-flex align-items-center justify-content-between mt-3' style={{borderBottom: '1px solid #01DE8E'}}>
-                                <span className='modal-style-span-text'>Ethereum</span>
-                                <img src={Group2}/>
-                            </div>
+                        <div className='col-10 d-flex align-items-center justify-content-between mt-3' style={{ borderBottom: '1px solid #01DE8E', cursor: 'pointer' }} onClick={() => setModalShowOne(true)}>
+                            <span className='modal-style-span-text'>Kadena</span>
+                            <img src={Group1} />
+                        </div>
 
-                            <div className='col-8 d-flex align-items-center justify-content-between mt-3' style={{borderBottom: '1px solid #01DE8E'}}>
-                                <span className='modal-style-span-text'>Credit Card</span>
-                                <img src={Group3}/>
-                            </div>
+                        <div className='col-10 d-flex align-items-center justify-content-between mt-3' style={{ borderBottom: '1px solid #01DE8E', cursor: 'pointer' }} onClick={() => setModalShowOne(true)}>
+                            <span className='modal-style-span-text'>Ethereum</span>
+                            <img src={Group2} />
+                        </div>
 
-                            <div className='col-8 d-flex align-items-center justify-content-between mt-3 mb-4'>
-                                <span className='modal-style-span-text'>kwUSDC</span>
-                                <img src={Group4}/>
-                            </div>
-                           
+                        <div className='col-10 d-flex align-items-center justify-content-between mt-3' style={{ borderBottom: '1px solid #01DE8E', cursor: 'pointer' }} onClick={() => setModalShowOne(true)}>
+                            <span className='modal-style-span-text'>Credit Card</span>
+                            <img src={Group3} />
+                        </div>
+
+                        <div className='col-10 d-flex align-items-center justify-content-between mt-3 mb-4' style={{cursor: 'pointer'}} onClick={() => setModalShowOne(true)}>
+                            <span className='modal-style-span-text'>kwUSDC</span>
+                            <img src={Group4} />
+                        </div>
+
                     </div>
 
                 </Modal>
@@ -246,41 +286,101 @@ function NftsMint() {
                     </>
                 )}
 
-                {modalShowOne? (   <Modal
-                    show={modalShowOne}
-                    onHide={() => setModalShowOne(false)}
-                    aria-labelledby="contained-modal-title-vcenter"
-                    centered
-                    className='settingcontanier'
-                >
+            {modalShowTwo ? (<Modal
+                show={modalShowTwo}
+                onHide={() => setModalShowTwo(false)}
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                className='settingcontanier '
+                size="sm"
+            >
 
-                    <div className='row modal-style'>
-                       
-                            <div className='col-12 d-flex align-items-center justify-content-between mt-3'>
-                                <span className='modal-style-span'>Connect Wallet</span>
-                                <IoMdClose
-                                    onClick={() => setModalShowOne(false)}
-                                    size={22}
-                                    style={{ color: "#01DE8E", cursor: "pointer", }}
-                                />
-                            </div>
+                <div className='row modal-style '>
 
-                            <div className='col-8 d-flex align-items-center justify-content-between mt-3' style={{borderBottom: '1px solid #01DE8E'}}>
-                                <span className='modal-style-span-text'>X-wallet</span>
-                                <img src={Group5}/>
-                            </div>
-
-                            <div className='col-8 d-flex align-items-center justify-content-between mt-3' style={{borderBottom: '1px solid #01DE8E'}}>
-                                <span className='modal-style-span-text'>Zelcore</span>
-                                <img src={Group6}/>
-                            </div>
+                    <div className='col-10 d-flex align-items-center justify-content-between mt-3'>
+                        <span className='modal-style-span'>Mint</span>
+                        <IoMdClose
+                            onClick={() => setModalShowTwo(false)}
+                            size={22}
+                            style={{ color: "#01DE8E", cursor: "pointer", }}
+                        />
                     </div>
 
-                </Modal>
+                    <div className='col-10 d-flex align-items-center justify-content-between' style={{ borderBottom: '1px solid #01DE8E' }}>
+                        <span className='modal-style-span-text'>Miners</span>
+                        <div className='col-5 mint-border d-flex justify-content-around align-items-center pt-1 pb-1'>
+                            <BsPlusCircle color={"#01DE8E"} size={15} />
+                            <span className='mint-border-span'>01</span>
+                            <BiMinusCircle color={"#01DE8E"} size={18} />
+                        </div>
+                    </div>
 
-                ) : (<>
-                </>)   
+                    <div className='col-10 d-flex align-items-center justify-content-between ' style={{ borderBottom: '1px solid #01DE8E' }}>
+                        <span className='modal-style-span-text'>Total Amount</span>
+                        <div className='col-5 mint-border d-flex justify-content-around align-items-center'>
+
+                            <span className='mint-border-span'>205.5</span>
+                            <img src={Group1} style={{ width: "30px", height: "30px" }} className="pt-1" />
+                        </div>
+                    </div>
+
+                    <div className='row d-flex align-items-center justify-content-center ' style={{ borderBottom: '1px solid #01DE8E' }}>
+                        <div className='col-10'>
+                        <div className="d-grid gap-2">
+                            <button className='btn-presaleMint fs-4' >
+                                Mint
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </Modal>
+
+            ) : (<>
+            </>)
             }
+
+            {modalShowThree?(
+                <Modal
+                show={modalShowThree}
+                onHide={() => setModalShowThree(false)}
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                className='settingcontanier '
+                size="sm"
+            >
+
+                <div className='row modal-style '>
+
+                    <div className='col-10 d-flex align-items-center justify-content-between mt-3'>
+                        <span className='modal-style-span'>Sign into Zelcore</span>
+                        <IoMdClose
+                            onClick={() => setModalShowThree(false)}
+                            size={22}
+                            style={{ color: "#01DE8E", cursor: "pointer", }}
+                        />
+                    </div>
+                    <div className='col-10 d-flex align-items-center justify-content-between ' style={{ borderBottom: '1px solid #01DE8E' }}>
+                        <p className='modal-style-span-text fs-6'>This will open your wallet to sign the request. Once the request is signed, you can confirm before sending it to the blockchain.</p> 
+                    </div>
+                    <div className='col-10  d-flex align-items-center justify-content-between' style={{ borderBottom: '1px solid #01DE8E', paddingBottom: '0px' }}>
+                        <p className='modal-style-span-text text-start pt-3'>K Account*</p>
+                    </div>
+                    <div className='row d-flex align-items-center justify-content-center ' >
+                        <div className='col-7'>
+                        <div className="d-grid gap-2">
+                            <button className='btn-presaleMint fs-4' >
+                                Conect
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </Modal>
+            ):(
+                <></>)}
         </div>
     )
 }

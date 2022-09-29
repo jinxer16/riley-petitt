@@ -10,7 +10,7 @@ import { BiSearch } from "react-icons/bi"
 import logo from "../../Assets/logo.png";
 function Navbars() {
   return (
-    <div> <Navbar  expand="lg"  variant="dark" style={{ width: "100%", color: '#000' }} >
+    <div> <Navbar  expand="lg" sticky="top"  variant="dark" style={{ width: "100%", backgroundColor: '#000' }} >
                        
     <Navbar.Brand href="#home" className="displayshow"><img src={logo} width="170px" /></Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -19,27 +19,29 @@ function Navbars() {
         
         <div className="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between" style={{ width: '100%' }}>
             <div className="row mt-3" >
-                <div className="col-md-12 d-flex align-items-center justify-content-center" >
-                    <div className="input-group mb-3  " style={{ border: '2px solid #8B41AB' }}>
+                <div className="col-md-12 d-flex align-items-center justify-content-center " >
+                    <div className="input-group mb-3  mt-2" style={{ border: '2px solid #8B41AB' }}>
                         <input type="text" className="form-control" placeholder="search" aria-label="Username" aria-describedby="basic-addon1" style={{ color: '#868484', backgroundColor: 'transparent', width: '270px', paddingTop: '5px', paddingBottom: "5px", border: '2px solid transparent' }} />
                         <span className="input-group-text " style={{ backgroundColor: 'transparent', border: '2px solid transparent' }}><BiSearch size={20} color="white" /></span>
                     </div>
                 </div>
             </div>
             <div className="" >
-                <button className="btn-Connect "><AiOutlinePlus size={20} />&nbsp; Connect Discord</button>
+                <button className="btn-Connect mt-2"><AiOutlinePlus size={20} />&nbsp; Connect Discord</button>
             </div>
             <div className="" >
-                <button className="btn-Connect "><AiOutlinePlus size={20} />&nbsp; Connect Wallet</button>
+                <button className="btn-Connect mt-2"><AiOutlinePlus size={20} />&nbsp; Connect Wallet</button>
             </div>
-            <div className="" >
+            <div className="col-lg-3 d-flex align-items-center justify-content-evenly mt-2" >
                 <img src={Icons2} />
-            </div>
-            <div className="" >
                 <img src={ExtraIcons} />
+                <img src={Frame28} />
             </div>
             <div className="" >
-                <img src={Frame28} />
+                
+            </div>
+            <div className="" >
+                
             </div>
         </div>
         </Nav>

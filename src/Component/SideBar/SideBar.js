@@ -21,7 +21,6 @@ import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
 import TuneIcon from "@mui/icons-material/Tune";
 import "./SideBar.css";
-import { NavLink, Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi"
 import { AiOutlinePlus } from "react-icons/ai"
 import sidebarHomePage from "../../Assets/sidebarHomePage.png"
@@ -49,32 +48,35 @@ import HomePage from "../HomePage/HomePage";
 import Dashboardicon from "../../Assets/Dashboardicon.png"
 import Navbars from "../Navbar/Navbars";
 import NftsMint from "../NftsMint/NftsMint";
+import {
+    Link,
+    NavLink,
+    Routes,
+    Route,
+    useLocation
+} from "react-router-dom";
+import Presale from "../Pre-Sale/Presale";
 const drawerWidth = 275;
 let acc;
 function ResponsiveDrawer(props) {
     const { window } = props;
-    const [show, setShow] = useState(false);
-    const [showone, setshowone] = useState(false);
+    const { pathname } = useLocation();
+    const changeRoute = () => {
+        if (pathname) {
+            console.log("pathname", pathname);
+            if (pathname == "/") {
+                setIsColor("NFTs Mint")
+            } else if (pathname == "/presale") {
+                setIsColor("Pre-Sale")
+            }
+        }
+    }
+    useEffect(() => {
+        changeRoute()
+    }, [])
+
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [modalShow, setModalShow] = useState(false);
-
-
-    const [iscolorChange, setIsColorChange] = useState(false);
-    const [iscolorChangeOne, setIsColorChangeOne] = useState(false)
-    const [iscolorChangeTwo, setIsColorChangeTwo] = useState(false)
-    const [iscolorChangeThree, setIsColorChangeThree] = useState(false)
-    const [iscolorChangeFour, setIsColorChangeFour] = useState(false)
-    const [iscolorChangeFive, setIsColorChangeFive] = useState(false)
-    const [iscolorChangeSix, setIsColorChangeSix] = useState(false)
-    const [iscolorChangeSeven, setIsColorChangeSeven] = useState(false)
-    const [iscolorChangeEhight, setIsColorChangeEhight] = useState(false)
-    const [iscolorChangeNine, setIsColorChangeNine] = useState(false)
-    const [iscolorChangeTen, setIsColorChangeTen] = useState(false)
-    const [iscolorChangeEleven, setIsColorChangeEleven] = useState(false)
-    const [iscolorChange12, setIsColorChangeEleven12] = useState(false)
-    const [iscolorChange13, setIsColorChangeEleven13] = useState(false)
-
-    const [isConn, setIsConn] = useState()
+    const [isColor, setIsColor] = useState("home")
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -86,91 +88,34 @@ function ResponsiveDrawer(props) {
             </Toolbar>
             <br />
             <div className="" style={{ marginLeft: "30px" }} >
-
-                {/* {showAdd} */}
-
-
             </div>
             <List>
-                {/* <Link to="/" className="linkid"> */}
-                {/* <Link to="" style={{ textDecoration: "none" }} > */}
-
-
                 <ListItem button href="#deshborad" key="Dashboard"
                     onClick={() => {
-                        setIsColorChangeNine(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeTen(!iscolorChangeTen)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChange(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
+                        setIsColor("home")
                     }}
-                    className={iscolorChangeTen ? ' staking-btn_active' : 'staking-btn'}>
+                    className={isColor == "home" ? ' staking-btn_active' : 'staking-btn'}>
                     <ListItemIcon >
                         <img src={sidebarHomePage} />
                     </ListItemIcon>
                     <ListItemText primary="Home Page" />
                 </ListItem>
-
-                {/* </Link> */}
-                {/* </Link> */}
-
-                {/* <Link to="/StakeNMS" className="linkid"> */}
                 <ListItem button key="Stake Fusion"
                     onClick={() => {
-                        setIsColorChange(!iscolorChange)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeNine(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
-
+                        setIsColor("NFT Form")
                     }}
-                    className={iscolorChange ? ' staking-btn_active' : 'staking-btn text-white'}>
+                    className={isColor == "NFT Form" ? ' staking-btn_active' : 'staking-btn text-white'}>
 
                     <ListItemIcon>
                         <img src={sidebarNFT} width="18px" />
                     </ListItemIcon>
                     <ListItemText primary="NFT Form" />
                 </ListItem>
-                {/* </Link> */}
-
-                {/* <Link to="/BuyBond" className="linkid"> */}
                 <ListItem button key="Buy Bond"
                     onClick={() => {
-                        setIsColorChangeOne(!iscolorChangeOne)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeNine(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
-
+                        setIsColor("View Miner")
                     }}
-                    className={iscolorChangeOne ? ' staking-btn_active' : 'staking-btn text-white'}
+                    className={isColor == "View Miner" ? ' staking-btn_active' : 'staking-btn text-white'}
                 >
                     <ListItemIcon>
                         <img src={SideBarView} />
@@ -180,76 +125,37 @@ function ResponsiveDrawer(props) {
                 <div className="" style={{ borderTop: '2px solid #B3B3B3', marginLeft: "10px", marginRight: '20px', marginTop: '20px', marginBottom: '20px' }}></div>
                 {/* </Link> */}
 
-
-                <ListItem button key="Buy Fusion"
+                <NavLink to="/" style={{ textDecoration: "none" }} >
+                    <ListItem button key="NFTs Mint"
+                        onClick={() => {
+                            setIsColor("NFTs Mint")
+                        }}
+                        className={isColor == "NFTs Mint" ? ' staking-btn_active' : 'staking-btn text-white'}
+                    >
+                        <ListItemIcon>
+                            <img src={sidebarNFTMint} />
+                        </ListItemIcon>
+                        <ListItemText primary="NFTs Mint" />
+                    </ListItem>
+                </NavLink>
+                <Link to="/presale" style={{ textDecoration: "none" }}>
+                    <ListItem button key="Pre-Sale"
+                        onClick={() => {
+                            setIsColor("Pre-Sale")
+                        }}
+                        className={isColor == "Pre-Sale" ? ' staking-btn_active' : 'staking-btn text-white'}
+                    >
+                        <ListItemIcon>
+                            <img src={SideBarPreSale} />
+                        </ListItemIcon>
+                        <ListItemText primary="Pre-Sale" />
+                    </ListItem>
+                </Link>
+                <ListItem button key="Marketplace"
                     onClick={() => {
-                        setIsColorChangeTwo(!iscolorChangeTwo)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeNine(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
+                        setIsColor("Marketplace")
                     }}
-                    className={iscolorChangeTwo ? ' staking-btn_active' : 'staking-btn text-white'}
-                >
-                    <ListItemIcon>
-                        <img src={sidebarNFTMint} />
-                    </ListItemIcon>
-                    <ListItemText primary="NFTs Mint" />
-                </ListItem>
-
-
-                <ListItem button key="Buy Fusion"
-                    onClick={() => {
-                        setIsColorChangeThree(!iscolorChangeThree);
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeNine(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                    }}
-                    className={iscolorChangeThree ? ' staking-btn_active' : 'staking-btn text-white'}
-                >
-                    <ListItemIcon>
-                        <img src={SideBarPreSale} />
-                    </ListItemIcon>
-                    <ListItemText primary="Pre-Sale" />
-                </ListItem>
-
-                <ListItem button key="Buy Fusion"
-                    onClick={() => {
-                        setIsColorChangeFour(!iscolorChangeFour)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeNine(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
-                    }}
-                    className={iscolorChangeFour ? ' staking-btn_active' : 'staking-btn text-white'}
+                    className={isColor == "Marketplace" ? ' staking-btn_active' : 'staking-btn text-white'}
                 >
                     <ListItemIcon>
                         <img src={sideBarmarketPalce} />
@@ -257,24 +163,11 @@ function ResponsiveDrawer(props) {
                     <ListItemText primary="Marketplace" />
                 </ListItem>
 
-                <ListItem button key="Buy Fusion"
+                <ListItem button key="My Inventoryt"
                     onClick={() => {
-                        setIsColorChangeFive(!iscolorChangeFive)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeNine(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
+                        setIsColor("My Inventoryt")
                     }}
-                    className={iscolorChangeFive ? ' staking-btn_active' : 'staking-btn text-white'}
+                    className={isColor == "My Inventoryt" ? ' staking-btn_active' : 'staking-btn text-white'}
                 >
                     <ListItemIcon>
                         <img src={sidebarMyinventory} />
@@ -285,24 +178,11 @@ function ResponsiveDrawer(props) {
                 <div className="" style={{ borderTop: '2px solid #B3B3B3', marginLeft: "10px", marginRight: '20px', marginTop: '20px', marginBottom: '20px' }}></div>
 
 
-                <ListItem button key="Buy Fusion"
+                <ListItem button key="Mining dashboard"
                     onClick={() => {
-                        setIsColorChangeSix(!iscolorChangeSix)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeNine(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
+                        setIsColor("Mining dashboard")
                     }}
-                    className={iscolorChangeSix ? ' staking-btn_active' : 'staking-btn text-white'}
+                    className={isColor == "Mining dashboard" ? ' staking-btn_active' : 'staking-btn text-white'}
                 >
                     <ListItemIcon>
                         <img src={sidebarmining} />
@@ -310,24 +190,11 @@ function ResponsiveDrawer(props) {
                     <ListItemText primary="Mining dashboard" />
                 </ListItem>
 
-                <ListItem button key="Buy Fusion"
+                <ListItem button key="Mining Farm"
                     onClick={() => {
-                        setIsColorChangeSeven(!iscolorChangeSeven)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeNine(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
+                        setIsColor("Mining Farm")
                     }}
-                    className={iscolorChangeSeven ? ' staking-btn_active' : 'staking-btn text-white'}
+                    className={isColor == "Mining Farm" ? ' staking-btn_active' : 'staking-btn text-white'}
                 >
                     <ListItemIcon>
                         <img src={sidebarminingForm} />
@@ -337,23 +204,10 @@ function ResponsiveDrawer(props) {
 
                 <ListItem button key="Buy Fusion"
                     onClick={() => {
-                        setIsColorChangeEhight(!iscolorChangeEhight)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeNine(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
+                        setIsColor("Staking")
                     }}
 
-                    className={iscolorChangeEhight ? ' staking-btn_active' : 'staking-btn text-white'}
+                    className={isColor == "Staking" ? ' staking-btn_active' : 'staking-btn text-white'}
                 >
                     <ListItemIcon>
                         <img src={SideBarStaking} />
@@ -363,22 +217,9 @@ function ResponsiveDrawer(props) {
 
                 <ListItem button key="Buy Fusion"
                     onClick={() => {
-                        setIsColorChangeNine(!iscolorChangeNine)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
+                        setIsColor("Sweepstakes")
                     }}
-                    className={iscolorChangeNine ? ' staking-btn_active' : 'staking-btn text-white'}
+                    className={isColor == "Sweepstakes" ? ' staking-btn_active' : 'staking-btn text-white'}
                 >
                     <ListItemIcon>
                         <img src={sidebarSweepstakes} />
@@ -386,24 +227,11 @@ function ResponsiveDrawer(props) {
                     <ListItemText primary="Sweepstakes" />
                 </ListItem>
 
-                <ListItem button key="Buy Fusion"
+                <ListItem button key="DAO Voting"
                     onClick={() => {
-                        setIsColorChangeNine(false)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(!iscolorChangeEleven)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(false)
+                        setIsColor("DAO Voting")
                     }}
-                    className={iscolorChangeEleven ? ' staking-btn_active' : 'staking-btn text-white'}
+                    className={isColor == "DAO Voting" ? ' staking-btn_active' : 'staking-btn text-white'}
                 >
                     <ListItemIcon>
                         <img src={SideBarDao} />
@@ -415,24 +243,11 @@ function ResponsiveDrawer(props) {
                 <div className="" style={{ borderTop: '2px solid #B3B3B3', marginLeft: "10px", marginRight: '20px', marginTop: '20px', marginBottom: '20px' }}></div>
 
 
-                <ListItem button key="Buy Fusion"
+                <ListItem button key="Support"
                     onClick={() => {
-                        setIsColorChangeNine(false)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(!iscolorChange12)
-                        setIsColorChangeEleven13(false)
+                        setIsColor("Support")
                     }}
-                    className={iscolorChange12 ? ' staking-btn_active' : 'staking-btn text-white'}
+                    className={isColor == "Support" ? ' staking-btn_active' : 'staking-btn text-white'}
                 >
                     <ListItemIcon>
                         <img src={sidebarSupport} />
@@ -440,24 +255,11 @@ function ResponsiveDrawer(props) {
                     <ListItemText primary="Support" />
                 </ListItem>
 
-                <ListItem button key="Buy Fusion"
+                <ListItem button key="Light Mode"
                     onClick={() => {
-                        setIsColorChangeNine(false)
-                        setIsColorChange(false)
-                        setIsColorChangeEleven(false)
-                        setIsColorChangeTen(false)
-                        setIsColorChangeEhight(false)
-                        setIsColorChangeSeven(false)
-                        setIsColorChangeSix(false)
-                        setIsColorChangeFive(false)
-                        setIsColorChangeFour(false)
-                        setIsColorChangeThree(false);
-                        setIsColorChangeTwo(false)
-                        setIsColorChangeOne(false)
-                        setIsColorChangeEleven12(false)
-                        setIsColorChangeEleven13(!iscolorChange13)
+                        setIsColor("Light Mode")
                     }}
-                    className={iscolorChange13 ? ' staking-btn_active ' : 'staking-btn text-white'}
+                    className={isColor == "Light Mode" ? ' staking-btn_active ' : 'staking-btn text-white'}
                 >
                     <ListItemIcon>
                         <img src={sidebarlightMode} />
@@ -482,7 +284,8 @@ function ResponsiveDrawer(props) {
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
-                <Toolbar style={{ backgroundColor: "#000000", height: "110px", width: '100%' }}>
+                <Toolbar style={{ backgroundColor: "#000000", width: '100%' }}>
+
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -490,14 +293,49 @@ function ResponsiveDrawer(props) {
                         onClick={handleDrawerToggle}
                         sx={{ mr: 2, display: { sm: "none" } }}
                     >
-                        <img src={Dashboardicon}/>
-                        {/* <MenuIcon /> */}
+                        <img src={Dashboardicon} style={{zIndex: "3000"}}/>
+
                     </IconButton>
-                    <Typography style={{ color: "white", display: "flex",width: '100%' }}>
-                    {/* <div style={{width: '100%'}}>
-<Navbars/>
-</div> */}
-                        </Typography>
+                    <Typography style={{ color: "white", display: "flex", width: '100%' }} >
+                        <div style={{ width: '100%' }} >
+                            <Navbar collapseOnSelect  expand="lg" sticky="top" variant="dark" style={{ width: "100%", backgroundColor: '#000' }} >
+                                <Navbar.Brand href="#home" className="displayshow"><img src={logo} width="170px" /></Navbar.Brand>
+                                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                                <Navbar.Collapse id="responsive-navbar-nav">
+                                    <Nav className=" nav" style={{ width: '100%' }}>
+
+                                        <div className="d-flex flex-md-row flex-column-reverse align-items-md-center justify-content-md-between " style={{ width: '100%' }}>
+                                            <div className="row mt-3" >
+                                                <div className="col-md-12 d-flex align-items-center justify-content-center " >
+                                                    <div className="input-group mb-3  mt-2" style={{ border: '2px solid #8B41AB' }}>
+                                                        <input type="text" className="form-control" placeholder="search" aria-label="Username" aria-describedby="basic-addon1" />
+                                                        <span className="input-group-text " style={{ backgroundColor: 'transparent', border: '2px solid transparent' }}><BiSearch size={20} color="white" /></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="" >
+                                                <button className="btn-Connect mt-2"><AiOutlinePlus size={20} />&nbsp; Connect Discord</button>
+                                            </div>
+                                            <div className="" >
+                                                <button className="btn-Connect mt-2"><AiOutlinePlus size={20} />&nbsp; Connect Wallet</button>
+                                            </div>
+                                            <div className="col-lg-3 d-flex align-items-center justify-content-evenly mt-2" >
+                                                <img src={Icons2} />
+                                                <img src={ExtraIcons} />
+                                                <img src={Frame28} />
+                                            </div>
+                                            <div className="" >
+
+                                            </div>
+                                            <div className="" >
+
+                                            </div>
+                                        </div>
+                                    </Nav>
+                                </Navbar.Collapse>
+                            </Navbar>
+                        </div>
+                    </Typography>
                     {/* */}
 
                 </Toolbar>
@@ -551,8 +389,14 @@ function ResponsiveDrawer(props) {
                 }}
             >
                 <Toolbar />
+                {/* <Navbars/> */}
+                <Routes>
+                    {/* <Route exact path="/" element={<HomePage/>}/> */}
+                    <Route exact path="/" element={<NftsMint />} />
+                    <Route exact path="/presale" element={<Presale />} />
+                </Routes>
                 {/* <HomePage /> */}
-                <NftsMint/>
+                {/* <NftsMint/> */}
             </Box>
         </Box>
     );

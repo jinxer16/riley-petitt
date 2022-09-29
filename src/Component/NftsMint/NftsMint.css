@@ -152,6 +152,7 @@ font-family: 'Quicksand';
 font-style: normal;
 font-weight: 600;
 font-size: 13px;
+border: 2px solid transparent;
 line-height: 16px;
 color: #FFFFFF;
 padding: 10px 12px;
@@ -166,6 +167,8 @@ border: 1px solid #01DE8E;
 box-shadow: 0px 4px 60px rgba(1, 222, 142, 0.3);
 border-radius: 8px;
 display: flex;
+height: 400px;
+/* width: 300px; */
 justify-content: center;
 }
 .modal-style-span{
@@ -179,9 +182,9 @@ color: #01DE8E;
 .modal-style-span-text{
     font-family: 'Quicksand';
 font-style: normal;
-font-weight: 600;
-font-size: 24px;
-line-height: 30px;
+font-weight: 500;
+font-size: 20px;
+line-height: 20px;
 color: #FFFFFF;
 }
 
@@ -190,7 +193,22 @@ color: #FFFFFF;
     z-index: 100000 !important;
     background-color: rgba(27, 27, 27, 0.473);
   }
-@media(max-width: 821px){
+  .mint-border{
+    border: 2px solid #01DE8E;
+    border-radius: 5px;
+  }
+  .mint-border-span{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+color: #FFFFFF;
+  }
+  .mint-modal-button{
+
+  }
+@media(max-width: 1024px){
     #media-display{
         display: block !important;
     } 
@@ -257,5 +275,25 @@ color: #FFFFFF;
     font-size: 11px;
     line-height: 17px;
     color: #FFFFFF;
+    }
+    .btn-bid{
+        background: linear-gradient(266.77deg, #01DE8E -0.22%, #2B6AD8 99.97%);
+    border-radius: 5px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    border: 2px solid transparent;
+    line-height: 16px;
+    color: #FFFFFF;
+    padding: 10px 12px;
+    }
+}
+@media(max-width: 360px){
+    .card-Box{
+        border: 2px solid #01DE8E;
+        width: auto !important;
+        /* box-shadow: 6.96317px 10.4447px 43.5198px rgba(0, 0, 0, 0.4); */
+    /* border-radius: 8px; */
     }
 }
